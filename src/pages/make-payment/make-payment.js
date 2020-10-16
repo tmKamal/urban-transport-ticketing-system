@@ -50,7 +50,7 @@ const MakePayment = () => {
 		userId: '',
 		amount: 500
 	});
-	const { isLoading, sendRequest, error, errorPopupCloser } = useHttpClient();
+	const {  sendRequest } = useHttpClient();
 	const { userId, amount } = values;
 
 	const onValueChange = (e) => {
@@ -67,7 +67,7 @@ const MakePayment = () => {
 
 		try {
 			let response = await sendRequest(
-				'https://urbanticket.herokuapp.com/api/payment/add-payment',
+				`${process.env.REACT_APP_BACKEND_API}/api/payment/add-payment`,
 				'POST',
 				JSON.stringify(paymentInfo),
 				{ 'Content-Type': 'application/json' }
