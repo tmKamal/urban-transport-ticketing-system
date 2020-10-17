@@ -15,6 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useHttpClient } from "../../hooks/http-hook";
 import { AuthContext } from "../../context/auth-context";
 import { Alert, AlertTitle } from "@material-ui/core";
+import loginImage from "../../assets/images/login.jpg";
 
 function Copyright() {
   return (
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: `url(${loginImage})`,
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -106,7 +107,7 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Manager Sign in
           </Typography>
           <form className={classes.form} noValidate onSubmit={submitHandler}>
             <TextField

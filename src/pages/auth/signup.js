@@ -13,6 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useHttpClient } from "../../hooks/http-hook";
 import { AuthContext } from "../../context/auth-context";
 import { Alert, AlertTitle } from "@material-ui/core";
+import signUpImage from "../../assets/images/signup.jpg";
 
 function Copyright() {
   return (
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh",
   },
   image: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: `url(${signUpImage})`,
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
@@ -108,7 +109,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign UP
+            Manager Sign Up
           </Typography>
           <form className={classes.form} noValidate onSubmit={submitHandler}>
             <TextField

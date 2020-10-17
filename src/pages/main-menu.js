@@ -20,7 +20,7 @@ const MainMenu = () => {
 
   return (
     <div className={classes.root}>
-      <Box my={5} mx={4}>
+      <Box my={5} mx={36}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Typography variant="h3" align="center" component="h1" gutterBottom>
@@ -28,16 +28,16 @@ const MainMenu = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <MenuBtn url={"/make-payments"} name="PAYMENTS"></MenuBtn>
+            <MenuBtn url={"/make-payments"} name="PAYMENTS" image="payment"></MenuBtn>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <MenuBtn url={"/journey-history"} name="JOURNEYS"></MenuBtn>
+            <MenuBtn url={"/journey-history"} name="JOURNEYS" image="else"></MenuBtn>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <MenuBtn url={"/bus-register"} name="BUS REGISTRATION"></MenuBtn>
+            <MenuBtn url={"/bus-register"} name="BUS REGISTRATION" image="bus"></MenuBtn>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <MenuBtn url={"/logout"} name="LOG OUT"></MenuBtn>
+            <MenuBtn url={"/payment-history"} name="PAYMENT HISTORY" image="payment-history"></MenuBtn>
           </Grid>
         </Grid>
       </Box>
