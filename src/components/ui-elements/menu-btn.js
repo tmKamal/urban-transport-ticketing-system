@@ -11,10 +11,15 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    textAlign:"center",
+    marginRight:"auto",
+    marginLeft:"auto",
+    marginTop:"60px"
   },
   media: {
     height: 140,
   },
+ 
 });
 
 const MenuBtn=(props)=> {
@@ -22,7 +27,7 @@ const MenuBtn=(props)=> {
   const classes = useStyles();
   const onClickHandler=(e)=>{
       console.log(props.url);
-      history.push('/journey-history');
+      history.push(props.url);
   }
 
   return (

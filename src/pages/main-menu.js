@@ -1,10 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { Box, Typography } from "@material-ui/core";
 import MenuBtn from "../components/ui-elements/menu-btn";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,18 +20,24 @@ const MainMenu = () => {
 
   return (
     <div className={classes.root}>
-      <Box my={4} mx={4}>
+      <Box my={5} mx={4}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Typography variant="h4" align="center" component="h1" gutterBottom>
-              Ticket Scanner v.01
+            <Typography variant="h3" align="center" component="h1" gutterBottom>
+              Manager Dashboard
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <MenuBtn url={"/logout"} name="PAYMENTS"></MenuBtn>
+            <MenuBtn url={"/make-payments"} name="PAYMENTS"></MenuBtn>
           </Grid>
           <Grid item xs={12} sm={6}>
             <MenuBtn url={"/journey-history"} name="JOURNEYS"></MenuBtn>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <MenuBtn url={"/bus-register"} name="BUS REGISTRATION"></MenuBtn>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <MenuBtn url={"/logout"} name="LOG OUT"></MenuBtn>
           </Grid>
         </Grid>
       </Box>

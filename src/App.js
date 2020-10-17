@@ -9,6 +9,7 @@ import { AuthContext } from "./context/auth-context";
 import Login from "./pages/auth/login";
 import Logout from "./pages/auth/logout";
 import SignUp from "./pages/auth/signup";
+import RegisterBus from "./pages/bus/register-bus";
 import JourneyHistory from "./pages/journey/journey-history";
 import MainMenu from "./pages/main-menu";
 import MakePayment from "./pages/make-payment/make-payment";
@@ -71,7 +72,9 @@ export default function App() {
         <Route path="/journey-history" exact>
           <JourneyHistory></JourneyHistory>
         </Route>
-
+        <Route path="/bus-register" exact>
+          <RegisterBus></RegisterBus>
+        </Route>
         <Route path="/logout" exact>
           <Logout></Logout>
         </Route>
