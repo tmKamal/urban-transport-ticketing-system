@@ -7,35 +7,46 @@ import CardMedia from "@material-ui/core/CardMedia";
 
 import Typography from "@material-ui/core/Typography";
 import { useHistory } from "react-router-dom";
+import busImage from "../../assets/images/bus.png";
+import pHistoryImage from "../../assets/images/payment-history.png";
+import paymentImage from "../../assets/images/payment.png";
+import journeyImage from "../../assets/images/joourney1.jpg";
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    textAlign:"center",
-    marginRight:"auto",
-    marginLeft:"auto",
-    marginTop:"60px"
+    textAlign: "center",
+    marginRight: "auto",
+    marginLeft: "auto",
+    marginTop: "60px",
   },
   media: {
     height: 140,
   },
- 
 });
 
-const MenuBtn=(props)=> {
-    const history=useHistory();
+const MenuBtn = (props) => {
+  const history = useHistory();
   const classes = useStyles();
-  const onClickHandler=(e)=>{
-      console.log(props.url);
-      history.push(props.url);
-  }
+  const onClickHandler = (e) => {
+    console.log(props.url);
+    history.push(props.url);
+  };
 
   return (
     <Card className={classes.root}>
       <CardActionArea onClick={onClickHandler}>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={
+            props.image === "payment"
+              ? paymentImage
+              : props.image === "payment-history"
+              ? pHistoryImage
+              : props.image === "bus"
+              ? busImage
+              : journeyImage
+          }
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -46,5 +57,5 @@ const MenuBtn=(props)=> {
       </CardActionArea>
     </Card>
   );
-}
+};
 export default MenuBtn;

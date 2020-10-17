@@ -14,8 +14,6 @@ import {
 } from "@material-ui/core";
 import { useHttpClient } from "../../hooks/http-hook";
 
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -27,6 +25,17 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     minWidth: 650,
+  },
+  layout: {
+    width: "auto",
+    marginLeft: theme.spacing(6),
+    marginRight: theme.spacing(6),
+    marginTop: theme.spacing(5),
+    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+      width: 600,
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
   },
 
   marginT: {
@@ -53,10 +62,10 @@ const JourneyHistory = () => {
   }, [sendRequest]);
 
   return (
-    <Grid container spacing={3}>
+    <Grid className={classes.layout} container spacing={3}>
       <Grid item xs={12}>
         <Typography
-          variant="h5"
+          variant="h3"
           align="center"
           color="textSecondary"
           paragraph
@@ -91,9 +100,16 @@ const JourneyHistory = () => {
                       {journey.passengerId.name}
                     </TableCell>
                     <TableCell align="center">{journey.startPlace}</TableCell>
-                    <TableCell align="center">{journey.status===true?"__":journey.endPlace}</TableCell>
-                    <TableCell align="center">{journey.status===true?<Chip color="secondary" label="Ongoing" />:<Chip color="primary"
- label="Completed" />}</TableCell>
+                    <TableCell align="center">
+                      {journey.status === true ? "__" : journey.endPlace}
+                    </TableCell>
+                    <TableCell align="center">
+                      {journey.status === true ? (
+                        <Chip color="secondary" label="Ongoing" />
+                      ) : (
+                        <Chip color="primary" label="Completed" />
+                      )}
+                    </TableCell>
                   </TableRow>
                 ))}
             </TableBody>
