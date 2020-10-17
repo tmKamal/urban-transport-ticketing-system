@@ -13,6 +13,7 @@ import RegisterBus from "./pages/bus/register-bus";
 import JourneyHistory from "./pages/journey/journey-history";
 import MainMenu from "./pages/main-menu";
 import MakePayment from "./pages/make-payment/make-payment";
+import PaymentHistory from "./pages/make-payment/payment-history";
 
 
 export default function App() {
@@ -74,6 +75,9 @@ export default function App() {
         </Route>
         <Route path="/bus-register" exact>
           <RegisterBus></RegisterBus>
+        </Route>
+        <Route path="/payment-history" exact>
+          <PaymentHistory></PaymentHistory>
         </Route>
         <Route path="/logout" exact>
           <Logout></Logout>

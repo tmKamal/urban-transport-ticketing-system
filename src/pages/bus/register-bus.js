@@ -47,6 +47,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
     
   },
+  layout: {
+    marginLeft:"auto",
+    marginRight:"auto"
+},
 }));
 
 const RegisterBus = () => {
@@ -118,7 +122,7 @@ const RegisterBus = () => {
     <React.Fragment>
       <CssBaseline />
 
-      <main style={{ marginTop: "100px" }} className={classes.layout}>
+      <Grid md={5} xs={10} style={{ marginTop: "100px" }} className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography
             style={{ marginBottom: "20px" }}
@@ -226,7 +230,7 @@ const RegisterBus = () => {
             </div>
           </form>
         </Paper>
-      </main>
+      </Grid>
     </React.Fragment>
   );
 };
