@@ -85,8 +85,8 @@ const MakePayment = () => {
 				{ 'Content-Type': 'application/json' }
 			);
 
-			console.log(response);
-			if (response.msg == 'Payment is Successful') {
+			console.log(response.msg);
+			if (response.msg == 'payment successfull') {
 				handleAlert();
 				setAlert({
 					...alert,
@@ -124,7 +124,7 @@ const MakePayment = () => {
 	};
 
 	const handleScan = async (data) => {
-		setValues({ ...values, userId: data });
+		setValues({ userId: data });
 	};
 	const handleError = (err) => {
 		console.error(err);
