@@ -9,7 +9,6 @@ import {
   Button,
   makeStyles,
   Alert,
-  AlertTitle,
   Snackbar,
 } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
@@ -67,7 +66,7 @@ const MakePayment = () => {
     e.preventDefault();
     const paymentInfo = {
       userId,
-      amount,
+      amount:parseFloat(amount),
       payhereId: "testingid",
       type,
     };
