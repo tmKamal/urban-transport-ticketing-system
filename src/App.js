@@ -9,6 +9,8 @@ import { AuthContext } from "./context/auth-context";
 import Login from "./pages/auth/login";
 import Logout from "./pages/auth/logout";
 import SignUp from "./pages/auth/signup";
+import JourneyHistory from "./pages/journey/journey-history";
+import MainMenu from "./pages/main-menu";
 import MakePayment from "./pages/make-payment/make-payment";
 
 
@@ -61,8 +63,15 @@ export default function App() {
     reactRoutes = (
       <Switch>
         <Route path="/" exact>
+          <MainMenu></MainMenu>
+        </Route>
+        <Route path="/make-payments" exact>
           <MakePayment></MakePayment>
         </Route>
+        <Route path="/journey-history" exact>
+          <JourneyHistory></JourneyHistory>
+        </Route>
+
         <Route path="/logout" exact>
           <Logout></Logout>
         </Route>
