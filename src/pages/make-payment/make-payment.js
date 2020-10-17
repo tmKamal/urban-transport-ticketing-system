@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import QrReader from 'react-qr-reader';
 import { useHttpClient } from '../../hooks/http-hook';
+import Alert from '../../components/alert/alert';
 import {
 	CssBaseline,
 	Typography,
 	Grid,
 	TextField,
 	Button,
-	makeStyles
+	makeStyles,
+	Snackbar
 } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
@@ -50,21 +52,31 @@ const MakePayment = () => {
 		userId: '',
 		amount: 500
 	});
-	const {  sendRequest } = useHttpClient();
+	const [show, setShow] = useState(false);
+	const { sendRequest, error } = useHttpClient();
 	const { userId, amount } = values;
+	const [alert, setAlert] = useState({
+		msgType: '',
+		message: '',
+		time: 5
+	});
+
+	const { msgType, message, time } = alert;
 
 	const onValueChange = (e) => {
+		console.log(e.target.value);
 		setValues({ ...values, [e.target.name]: e.target.value });
 	};
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		const paymentInfo = {
 			userId,
-			amount,
+			amount: parseFloat(amount),
 			payhereId: 'testingid',
 			type
 		};
-
+		setValues({ amount: 500, userId: '' });
+		console.log(paymentInfo);
 		try {
 			let response = await sendRequest(
 				`${process.env.REACT_APP_BACKEND_API}/api/payment/add-payment`,
@@ -72,9 +84,42 @@ const MakePayment = () => {
 				JSON.stringify(paymentInfo),
 				{ 'Content-Type': 'application/json' }
 			);
+
 			console.log(response);
-		} catch (error) {
-			console.log(error);
+			if (response.msg == 'Payment is Successful') {
+				handleAlert();
+				setAlert({
+					...alert,
+					msgType: 'success',
+					message: 'Payment has been successfully done',
+					time: 3
+				});
+				setTimeout(() => {
+					setShow(false);
+				}, 3000);
+			} else {
+				handleAlert();
+				setAlert({
+					...alert,
+					msgType: 'error',
+					message: 'Error while doing the payment! Please try again',
+					time: 3
+				});
+				setTimeout(() => {
+					setShow(false);
+				}, 3000);
+			}
+		} catch (er) {
+			handleAlert();
+			setAlert({
+				...alert,
+				msgType: 'error',
+				message: 'Error while doing the payment! Please try again',
+				time: 3
+			});
+			setTimeout(() => {
+				setShow(false);
+			}, 3000);
 		}
 	};
 
@@ -84,6 +129,12 @@ const MakePayment = () => {
 	const handleError = (err) => {
 		console.error(err);
 	};
+
+	const handleAlert = () => {
+		console.log('handling');
+		setShow(true);
+	};
+
 	return (
 		<React.Fragment>
 			<CssBaseline />
@@ -98,6 +149,15 @@ const MakePayment = () => {
 					align='center'>
 					Make payment
 				</Typography>
+				{show ? (
+					<Alert
+						type={msgType}
+						message={message}
+						time={time}
+						status='true'></Alert>
+				) : (
+					''
+				)}
 
 				<Container maxWidth='xs' style={{ marginBottom: '20px' }}>
 					<div>
@@ -137,6 +197,7 @@ const MakePayment = () => {
 							<Grid item xs={12}>
 								<TextField
 									required
+									type='number'
 									id='amount'
 									value={amount}
 									name='amount'
