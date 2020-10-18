@@ -34,7 +34,7 @@ const Logout=()=> {
         <Typography variant="h4" component="h1" gutterBottom>
           Logout 
         </Typography>
-        <CustomButton onClick={signout}>Sign Me Out!</CustomButton>
+        <CustomButton  data-testid="cbtn" aria-label="Close" aria-describedby="description-close" onClick={signout}>Sign Me Out!</CustomButton>
         <Copyright />
       </Box>
     </Container>
