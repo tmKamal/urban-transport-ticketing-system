@@ -27,17 +27,23 @@ const MainMenu = () => {
               Manager Dashboard
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <MenuBtn url={"/make-payments"} name="PAYMENTS" image="payment"></MenuBtn>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <MenuBtn url={"/journey-history"} name="JOURNEYS" image="else"></MenuBtn>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <MenuBtn url={"/bus-register"} name="BUS REGISTRATION" image="bus"></MenuBtn>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <MenuBtn url={"/payment-history"} name="PAYMENT HISTORY" image="payment-history"></MenuBtn>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <MenuBtn url={"/foreign-register"} name="FOREIGN REGISTRATION" image="foreign"></MenuBtn>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <MenuBtn url={"/logout"} name="LOG OUT" image="logout"></MenuBtn>
           </Grid>
         </Grid>
       </Box>

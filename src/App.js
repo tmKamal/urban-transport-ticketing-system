@@ -10,6 +10,7 @@ import Login from "./pages/auth/login";
 import Logout from "./pages/auth/logout";
 import SignUp from "./pages/auth/signup";
 import RegisterBus from "./pages/bus/register-bus";
+import RegisterForeign from "./pages/foreign/register-foreign";
 import JourneyHistory from "./pages/journey/journey-history";
 import MainMenu from "./pages/main-menu";
 import MakePayment from "./pages/make-payment/make-payment";
@@ -78,6 +79,9 @@ export default function App() {
         </Route>
         <Route path="/payment-history" exact>
           <PaymentHistory></PaymentHistory>
+        </Route>
+        <Route path="/foreign-register" exact>
+          <RegisterForeign></RegisterForeign>
         </Route>
         <Route path="/logout" exact>
           <Logout></Logout>

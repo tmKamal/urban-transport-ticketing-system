@@ -11,6 +11,8 @@ import busImage from "../../assets/images/bus.png";
 import pHistoryImage from "../../assets/images/payment-history.png";
 import paymentImage from "../../assets/images/payment.png";
 import journeyImage from "../../assets/images/joourney1.jpg";
+import logoutImage from "../../assets/images/logout.jpg";
+import foreignImage from "../../assets/images/foreignreg.png";
 
 const useStyles = makeStyles({
   root: {
@@ -34,7 +36,7 @@ const MenuBtn = (props) => {
   };
 
   return (
-    <Card className={classes.root}>
+    <Card data-testid="mbtn" className={classes.root}>
       <CardActionArea onClick={onClickHandler}>
         <CardMedia
           className={classes.media}
@@ -45,6 +47,10 @@ const MenuBtn = (props) => {
               ? pHistoryImage
               : props.image === "bus"
               ? busImage
+              : props.image === "foreign"
+              ? foreignImage
+              : props.image === "logout"
+              ? logoutImage
               : journeyImage
           }
           title="Contemplative Reptile"
