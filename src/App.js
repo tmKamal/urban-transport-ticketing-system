@@ -22,7 +22,7 @@ export default function App() {
   const [name, setName] = useState();
   const [mgr, setMgr] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
+  // login
   const login = useCallback((name, token, mgr) => {
     setToken(token);
     setName(name);
