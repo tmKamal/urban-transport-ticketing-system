@@ -14,6 +14,7 @@ import journeyImage from "../../assets/images/joourney1.jpg";
 import logoutImage from "../../assets/images/logout.jpg";
 import foreignImage from "../../assets/images/foreignreg.png";
 
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -36,7 +37,7 @@ const MenuBtn = (props) => {
   };
 
   return (
-    <Card data-testid="mbtn" className={classes.root}>
+    <Card data-testid="mbtn" elevation={1} className={classes.root}>
       <CardActionArea onClick={onClickHandler}>
         <CardMedia
           className={classes.media}
